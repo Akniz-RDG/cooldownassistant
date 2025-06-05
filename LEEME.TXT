@@ -1,0 +1,77 @@
+# 🧠 Cooldown Assistant (WoW Addon)
+
+**Cooldown Assistant** es un addon para *World of Warcraft* (Classic/Vanilla/SoM/HC) que te permite configurar alertas visuales personalizadas basadas en:
+
+- **% de vida restante del enemigo**
+- **Tiempo transcurrido desde el inicio del combate**
+
+Estas alertas aparecen como mensajes en pantalla para ayudarte a optimizar el uso de tus cooldowns ofensivos y defensivos.
+
+---
+
+## ⚙️ Características
+
+- 🔔 **Alertas por vida**: muestra mensajes cuando un enemigo alcanza un porcentaje de vida específico (ej: 35%).
+- ⏱️ **Alertas por tiempo**: muestra mensajes después de X segundos desde el inicio del combate.
+- ✅ Soporte para múltiples jefes (puedes guardar alertas distintas por nombre).
+- 💾 Las alertas quedan **guardadas entre sesiones**.
+- 🧹 Botón para eliminar todas las alertas de un boss.
+- 📋 Interfaz para ingresar las alertas dentro del juego (con `/cooldown`).
+
+---
+
+## 🧪 ¿Cómo se usa?
+
+1. Escribe `/cooldown` en el chat para abrir la interfaz del addon.
+2. Escribe el **nombre del boss** (puede ser cualquier enemigo objetivo).
+3. Añade una alerta:
+   - Por vida: ingresa un número de `%` y un mensaje.
+   - Por tiempo: ingresa un número de **segundos** y un mensaje.
+4. Presiona **"Agregar Alerta %"** o **"Agregar por Tiempo"**.
+5. Cuando luches contra ese enemigo, las alertas se activarán automáticamente.
+
+---
+
+## 📦 Instalación
+
+1. Copia la carpeta `CooldownAssistant` dentro de tu directorio:
+2. Asegúrate de tener activado el addon desde el botón **"AddOns"** en la pantalla de selección de personaje.
+3. Usa `/reload` si hiciste cambios en caliente.
+
+---
+
+## 🛠️ Archivos incluidos
+
+- `CooldownAssistant.lua` – Lógica del addon
+- `CooldownAssistant.xml` – Interfaz visual
+- `CooldownAssistant.toc` – Metadatos y orden de carga
+
+---
+
+## 🧠 Ejemplos de uso
+
+- `"20% - Usar Execute"`  
+- `"60s - Usar Death Wish"`  
+- `"35% - Pop defensivo"`
+
+---
+
+## 🙋 FAQ
+
+**¿Puedo usarlo con mobs normales o solo bosses?**  
+Sí, puedes usarlo con cualquier enemigo con nombre.
+
+**¿Funciona con múltiples jefes?**  
+Sí, puedes registrar alertas distintas para cada nombre de enemigo.
+
+**¿Las alertas se borran al desconectarme?**  
+No. Se guardan mediante `SavedVariables` y se recuperan al volver a entrar.
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado por Rodrigo_AKZ 
+Inspirado en la necesidad de optimizar los cooldowns en WoW Classic con precisión.
+
+---

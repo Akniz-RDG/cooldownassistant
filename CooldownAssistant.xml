@@ -1,0 +1,103 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+  <Frame name="CooldownUI" parent="UIParent" inherits="BackdropTemplate" movable="true" enableMouse="true" hidden="true">
+    <Size><AbsDimension x="380" y="400"/></Size>
+    <Anchors><Anchor point="CENTER"/></Anchors>
+
+    <Frames>
+
+      <!-- Boss Name -->
+      <EditBox name="BossNameInput" inherits="InputBoxTemplate">
+        <Size><AbsDimension x="300" y="20"/></Size>
+        <Anchors>
+          <Anchor point="TOPLEFT"><Offset x="20" y="-30"/></Anchor>
+        </Anchors>
+      </EditBox>
+
+      <!-- Percent / Time Input -->
+      <EditBox name="PercentInput" inherits="InputBoxTemplate">
+        <Size><AbsDimension x="40" y="20"/></Size>
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeTo="BossNameInput" relativePoint="BOTTOMLEFT">
+            <Offset x="0" y="-20"/>
+          </Anchor>
+        </Anchors>
+      </EditBox>
+
+      <!-- Message Input -->
+      <EditBox name="MessageInput" inherits="InputBoxTemplate">
+        <Size><AbsDimension x="220" y="20"/></Size>
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeTo="BossNameInput" relativePoint="BOTTOMLEFT">
+            <Offset x="50" y="-20"/>
+          </Anchor>
+        </Anchors>
+      </EditBox>
+
+      <!-- Add Alert % -->
+      <Button name="AddThresholdButton" text="Agregar Alerta %">
+        <Size><AbsDimension x="160" y="25"/></Size>
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeTo="PercentInput" relativePoint="BOTTOMLEFT">
+            <Offset x="0" y="-20"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            Cooldown_AddAlert()
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <!-- Add Alert Time -->
+      <Button name="AddTimerButton" text="Agregar por Tiempo">
+        <Size><AbsDimension x="160" y="25"/></Size>
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeTo="AddThresholdButton" relativePoint="BOTTOMLEFT">
+            <Offset x="0" y="-10"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            Cooldown_AddTimerAlert()
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <!-- Clear All Alerts -->
+      <Button name="ClearAllButton" text="Eliminar Todas">
+        <Size><AbsDimension x="160" y="25"/></Size>
+        <Anchors>
+          <Anchor point="TOPLEFT" relativeTo="AddTimerButton" relativePoint="BOTTOMLEFT">
+            <Offset x="0" y="-10"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            StaticPopup_Show("COOLDOWN_CONFIRM_CLEAR")
+          </OnClick>
+        </Scripts>
+      </Button>
+
+      <!-- Close Button -->
+      <Button name="CloseButton" inherits="UIPanelCloseButton">
+        <Anchors>
+          <Anchor point="TOPRIGHT"><Offset x="-5" y="-5"/></Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+            CooldownUI:Hide()
+          </OnClick>
+        </Scripts>
+      </Button>
+
+    </Frames>
+
+    <Scripts>
+      <OnLoad>
+        self:RegisterForDrag("LeftButton")
+        self:SetScript("OnDragStart", self.StartMoving)
+        self:SetScript("OnDragStop", self.StopMovingOrSizing)
+      </OnLoad>
+    </Scripts>
+  </Frame>
+</Ui>
