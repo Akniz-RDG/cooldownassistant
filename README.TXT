@@ -71,7 +71,7 @@ No, alerts are saved via `SavedVariables` and reloaded automatically.
 
 ## 👨‍💻 Author
 
-Developed by [your name or handle].  
+Developed by Akniz-RDG
 Inspired by the need to manage cooldowns with precision in WoW Classic.
 
 ---
